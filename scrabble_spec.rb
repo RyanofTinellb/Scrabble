@@ -8,9 +8,7 @@ RSpec.describe Scrabble do
 			expect(Scrabble.new.score("Hello")).to eq(8)	# capitalisation
 			expect(Scrabble.new.score("")).to eq(0)		# empty string
 			expect(Scrabble.new.score(nil)).to eq(0)	# nil input
-			expect(Scrabble.new.score("he5llo")).to eq(8)	# illegal characters
-			expect(Scrabble.new.score(" ")).to eq(0)	# space
-			expect(Scrabble.new.score(34)).to eq(0)		# type error check
+			expect{Scrabble.new.score("he5llo")}.to raise_error(ArgumentError, "illegal characters in word")		#illegal characters
 		end
 	end
 end
