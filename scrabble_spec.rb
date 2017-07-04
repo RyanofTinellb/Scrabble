@@ -18,7 +18,7 @@ RSpec.describe Scrabble do
 			expect(game.score("hello", "-D-T-")).to eq(48)	# double word score and triple word score
 			expect{game.score("hello", "---")}.to raise_error(ArgumentError, "too few characters in bonus string")
 			expect{game.score("hello", "--------")}.to raise_error(ArgumentError, "too many characters in bonus string")
-			expect{game.score("hello", "-R---")}to raise_error(ArgumentError, "illegal characters in bonus string")
+			expect{game.score("hello", "-R---")}.to raise_error(ArgumentError, "illegal characters in bonus string")
 		end
 	end
 end
